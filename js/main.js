@@ -72,8 +72,8 @@ var swiper = new Swiper(".trending-content", {
   //     }
   // }
   
-  var root = document.querySelector(':root');
   function changeColor(){
+  var root = document.querySelector(':root');
 
     // while(true){
   
