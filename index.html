@@ -1,790 +1,383 @@
-/*Googl Fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
-    font-family: 'Poppins', sans-serif;
-    margin: 0;  
-    padding: 0;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none ; 
-    scroll-padding-top: 2rem;
-}
-/* html ::-webkit-scrollbar{
-    display: none;
-} */
-/* color roots */
-:root{
-    --main-color:#fa5353;
-    /* second color choice */
-    --second-color:#0d81ec;
-    --dark-color:#1b182b;
-    --light-color:#322f40; 
-    --text-color:hsl(0,0%,91%);
-    --game-color:#0d81ec;
-}
-::selection{
-    color:var(--text-color);
-    background: var(--main-color);
-}
-html{
-    scroll-behavior: smooth;
-}
-section{
-    padding: 4rem 0 3rem;
-}
-img{
-    width: 100%;
-}
-body{
-    color: var(--text-color);
-    background-color: var(--dark-color); 
-}
-.contanier{
-    max-width: 1068px;
-    margin: auto;
-    width: 100%;
-}
-/*Header*/
-header{
-    position:fixed;
-    top:0 ;
-    left: 0;
-    width: 100%;
-    background:var(--dark-color);
-    z-index:100 ;
-}
-/* Nav*/
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 0;
-}
-/* Logo  */
-.logo{
-    font-size: 1.4rem;
-    font-weight: 600;
-    color:var(--text-color);
-    text-transform: uppercase;
-    margin: 0 auto 0 0;
-}
-.logo span{
-    color:var(--main-color);
-}
-/*Nav Icons*/
-.nav-icons{
-    display: flex;
-    align-items: center;
-    column-gap:1rem;
-}
-.nav-icons .bx{
-    font-size: 20px;
-    height:44px;
-    width: 44px;
-    display:grid;
-    place-items: center;
-    color:var(--text-color);
-    background: var(--light-color);
-    border-radius: 50%;
-    cursor: pointer;
-}
-#bell-icon{
-    position: relative;
-}
-#bell-icon  span{
-    content: '';
-    height:5px;
-    width: 5px;
-    border-radius: 50%;
-    background: var(--main-color);
-    position: absolute;
-    top:10px;
-    right: 14px;
-}
-/*Menu icon*/
-.menu-icon{
-    display:flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    row-gap: 5px;
-    height:44px;
-    width: 44px;
-    border-radius: 50%;
-    background: var(--light-color);
-    cursor: pointer;
-    z-index: 200;
-    transition: 0.3s;
-}
-.menu-icon div{
-    display: block;
-    background: var(--text-color);
-    height: 2px;
-    width: 25px;
-    transition: 0.3s;
-}   
-.move .line1{
-    transform: rotate(-45deg) translate(-5px, 5px);
-}
-.move .line2{
-    opacity: 0;
-}
-.move .line3{
-    transform: rotate(45deg) translate(-5px, -5px);
-}
-/*Menu*/
-.menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgb(0, 0, 14, 0.9); 
-    z-index: 106;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: 0.5s;
-    clip-path: circle(0% at 100% 0%);
-}
-.menu.active{                                  /* Animation*/
-    clip-path: circle(144% at 100% 0%);
-}
-.menu img{
-    width: 700px;
-}
-.navbar{
-    display: grid;
-    row-gap: 1rem;
-    text-align: right;
-    padding-right: 2rem;
-}
-.navbar a{
-    font-size: 1.6rem;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: 0.2s;
-}
-.navbar a:hover{
-    border-bottom: 4px solid var(--main-color);
-    font-size: 1.8rem;
-}
-/* Notification */
-.notification{
-    position: absolute;
-    top: 110%;
-    right: 5rem;
-    background: var(--light-color);
-    width: 300px;
-    height: 350px;
-    border-radius: 0.5rem;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    clip-path: circle(0% at 100% 0%);
-}
-.notification.active{
-    clip-path: circle(144% at 100% 0%);
-    transition: 0.3s;
-}
-.notification-box{
-    display: flex;
-    align-items: baseline;
-    column-gap: 1rem;
-    border-radius: 0.5rem;
-    background: var(--dark-color);
-    padding: 10px ;
-}
-.notification-box .bx{
-    color: #faf102;
-}
-.box-color{
-    background: hsl(0, 0%, 100%, 0.4);
-}
-.box-color .bx{
-    color: var(--main-color);
-}
-/* Home*/
-.home {
-    position: relative;
-    min-height: 540px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top:5rem ;
-}
-.home img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 1.4rem;
-    z-index: -1 ;
-}
-.home-text{
-    padding-right: 4rem;
-    text-align: right;
-}
-.home-text h1{
-    font-size: 2.4rem;
-    text-transform: uppercase;
-    color: var(--dark-color);
-    margin-bottom: 1rem ;
-}
-.btn{
-    background: var(--main-color);
-    padding: 15px 20px;
-    color: var(--text-color);
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    font-weight: 500;
-    clip-path: polygon(0 0, 100% 0%, 100% 100%, 10% 100%, 0% 68%);
-}
-.btn:hover{
-    background: var(--light-color);
-    transition: 0.3s all linear;
-}
-/* Heading */
-.heading{
-    display: flex;
-    align-items: center;
-    column-gap: 1rem;
-    margin-bottom: 2rem;
-}
-.heading .bx{
-    font-size: 21px;
-    color: var(--text-color);
-    background: var(--main-color);
-    padding: 10px;
-    border-radius: 5rem ;
-}
-.heading h2{
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-.box{
-    position: relative;
-    width: 100%;
-    height: 350px;
-    border-radius: 0.5rem;
-}
-.box img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.5rem;
-}
-.box .box-text{
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    padding: 10px;
-    background: hsl(227, 14%, 20%, 0.8);
-    backdrop-filter: blur(4px);
-    border-radius: 0.5rem;
-}
-.box .box-text h2{
-    font-size:1rem ;
-    font-weight: 500;
-}
-.box .box-text h3{
-    font-size:0.9rem ;
-    font-weight: 400;
-    margin-bottom: 0.8rem;
-}
-.rating-download {
-    display:flex;
-    justify-content: space-between;
-}
-.rating{
-    display: flex;
-    align-items: center;
-    column-gap:4px ;
-    background: hsl(0, 0%, 100%,0.4);  
-    padding: 4px 10px ; 
-    border-radius: 0.5rem ;
-}
-.rating .bx{
-    color:#faf102;
-    font-size: 0.9rem;
-}
-.rating span{
-    color:#faf102;
-    font-size: 0.9rem;
-}
-.box-btn .bx{
-    padding: 8px;
-    background:var(--text-color) ;
-    border-radius: 5rem;
-    color: var(--main-color);
-    font-weight: 400;
-    font-size: 20px;
-}
-.box-btn .bx:hover{
-    background: var(--dark-color);
-    transition: 0.8s ease;
-    font-size: 25px;
-    transform: rotate(360deg);
-}
-/* New */
-.new-content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(240px,250px));
-    gap: 1.2rem;  
-}
-.next-page{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
-}
-.next-page a{
-    background: var(--main-color);
-    padding: 12px 20px;
-    color: var(--text-color);
-    letter-spacing: 1px;
-    font-weight: 500;
-    font-size: 20px;
-    transition: all 0.6s ease-in-out 0s;
-}
-.next-page a:hover{
-    background: var(--light-color);
-    
-    font-size: 25px;
-}
-.copyright{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-.copyright p{
-    font-size: 1rem;
-    color: var(--text-color);
-}
-                    /* Download Page*/
-.video-contanier video{
-    width: 100%;
-    aspect-ratio: 16/9;
-}
-.video-contanier{
-    margin-top: 5rem ;
-}
-.about{
-    margin-top: 5rem;
-}
-.about h2{
-    display: inline-flex;
-    font-size: 1.4rem;
-    font-weight: 500;
-    border-bottom: 4px solid var(--main-color);
+<!DOCTYPE html>
+<html lang="en">
 
-}
-.about p{
-    font-size: 0.93rem;
-    margin-top: 1rem;
-    text-align: justify;
-}
-.screenshots h2 {
-    display: inline-flex;
-    font-size: 1.4rem;
-    font-weight: 500;
-    border-bottom: 4px solid var(--main-color);
-    margin: 1.6rem 0;
-}
-.screenshots-content {
-    /* display:grid ; */
-    /* grid-template-columns: repeat(auto-fit, minmax(250px, auto)); */
-    gap: 17px;
-    justify-content: center;
-    display: flex;                              /*  dev */
-    flex-direction: row;
-    max-width: 800px;
-    margin: auto;
-    width: 100%;    
-}
-.screenshots-content img{           /*****/
-    width: 50%;
-    height: 440px;
-    object-fit: cover;
-    border:  solid var(--main-color);  
-    border-radius: 1.7rem;
-    transition: all 0.9s  ease-in-out 0s;
-} 
-.screenshots-content img:hover{
-    transition: all 0.9s  ease-in-out 0s;
-    width: 100%;
-    height: 390px;
-    
-}
-.download{
-    max-width: 800px;
-    margin: auto;
-    display: grid;
-    justify-content: center;
-    margin-top: 2rem ;  
-}
-.download h2{
-    font-size:  1.4rem;
-    font-weight: 500;
-    margin: 1.6rem 0;
-}
-.download-links{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 2rem;
-}
-.download-links a{ 
-    text-align: center;
-    background: var(--main-color);
-    padding: 12px 20px;
-    color: var(--text-color);
-    letter-spacing: 1px ;
-    font-weight: 500;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website</title>
+    <!-- Fav Icon -->
+    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+    <!-- link to external CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Swiper  CSS File Link-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
 
-.download-links a:hover{
-    background: var(--light-color);
-    transition:  0.3s all linear ;
-}
-                   /*NEW.HTML PAGE */
-section.header-name h2.p {
-    display: grid;
-    justify-content: center;
-    align-items: center;   
-    margin-top: 40px;
-    font-weight: bolder;
-    color: var(--game-color); 
-    font-size:40px ;
-    transition: all 0.8s ease-in-out 0s; 
-    display: flex;
-    flex: row;
-} 
-section.header-name h2.p:hover{
-    color: var(--main-color);
-    font-size: 50px;
-}                  
-                                    /*About me*/
-.contanier-2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.career {
-    margin: 75px 0;
-}
-
-h1 {
-text-align: center; 
-letter-spacing: 2px;
-color: var(--text-color);
-padding-bottom: 10px;
-}
-
-h1.k:after {
-content: '';
-background: var(--main-color);
-display: block;
-height: 3px;
-width: 190px;
-margin: 10px auto;
-}
-
-/* New */
-.profile {
-margin-top: 25px;
-}
-
-.profile .img-box {
-opacity: 1;
-display: block;
-position: relative;
-}
-/* .img-box{
-    border:  solid var(--main-color);  
-    height: 90%;
-    border-radius: 1.7rem;
-} */
-
-.profile h2 {
-font-size: 29px;
-font-weight: bold;
-margin-top: 5px
-}
-
-.img-box:after {
-content: '';
-opacity: 0;
-background-color:rgba(0, 0, 0, 0.442);
-position: absolute;
-right: 0;
-left: 0;
-top: 0;
-bottom: 0;
-margin-bottom: 48px;
-}
-
-.img-box ul {
-margin: 0;
-padding: 20px 0;
-position: absolute;
-z-index: 1;
-bottom: 0;
-display: block;
-left: 50%;
-transform: translateX(-50%);
-opacity: 0;
-}
-
-.img-box ul li {
-width: 30px;
-height: 30px;
-border: 1px solid #fff;
-border-radius: 50%;
-margin: 3px;
-padding-left: 2px; /**NEw**/
-padding-top: 2px;
-display: inline-block;
-
-}
-
-.img-box a {
-color:#fff
-}
-
-.img-box:hover:after {
-opacity: 1;
-}
-
-.img-box:hover ul {
-opacity: 1;
-}
-
-.img-box a:hover li {
-color: #007bff;
-border: 1px solid #007bff;
-}
-
-.img-box:after,
-.img-box ul,
-.img-box ul li {
-transition: all 0.5s ease-in-out 0s;
-}
-span {
-    color: var(--main-color);
-}
-.contanier-2 p{
-    font-weight: 500;
-    font-size: 25px;
-    letter-spacing: 1px;
-}
-/* new  */
-html::-webkit-scrollbar{
-    display: none;
-}
-/* Scroll Bar */
-.progress{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 5px;
-    width: 100%;
-    z-index: 500;
-}
-.progress-bar{
-    height: 5px;
-    border-radius:1.4rem ;
-    background-color: var(--main-color);
-    width: 0%;  
-}
-a{
-    text-decoration: none !important;
-}
-a:hover{
-    color: unset;
-}
-/* Responsive */
-@media (max-width:1080px) {
-    .contanier{
-        margin: 0 auto;
-        width: 90%;
-
-    }
-    .nav{
-        padding: 10px 0;
-    }
-    .notification{
-        right: 4rem;
-    }
-    .menu img{
-        width: 500px;
-    }
-    section {
-        padding: 3rem 0 2rem;
-    }
-    .home {
-        min-height: 440px;
-        margin-top: 4rem !important;
-    }
-    .home img {
-        border-radius: 1rem;      
-
-    }
-        .new-content {
-            grid-template-columns: repeat(auto-fit,minmax(200px,auto));
-        }
-        .video-contanier {
-            margin-top: 5rem !important;
-        }
-}
- /* Medium Devices */
-@media (max-width:774px){
-    .notification {
-        right: 1rem;
-    }
-    .menu img {
-        width: 400px;
-    }
-    .home {
-        min-height: 300px;
-    }
-
-    .home-text h1 {
-        font-size: 2rem;
-    }
-    .btn {
-        padding: 12px 17px;
-    }
-    .screenshots-content{
-        grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-    }
-    .screenshots-content img:hover {
-        width: 30%;
-    }
-    .screenshots-content img {
-        width: 35%;
-                
-
-    }   
-
-}
-@media (max-width:560px) {
-    .menu img {
-        display: none;
-    }
-    .menu{
-        justify-content: flex-end;
-    }
-    .nav{
-        padding: 8px 0;
-    }
-    .nav-icons .bx, .menu-icon {
-    height: 40px;
-    width: 40px;
-}
-    .home{
-        min-width: 240px;
-    }
-    .home-text {
-        padding-right: 1rem;
-    }
-    p{
-        font-size: 0.875rem;
-    }
-
-    .screenshots-content {
-        display: grid;
-        max-width: 800px;
-        width: 100%;
-    }
-    section.header-name h2.p:hover{
-        font-size: 42px;
-    } 
-    .screenshots-content img{
-        width: 100%;
-    }
-    .screenshots-content img:hover{
-        width: 100%;
-    }
-
-}
-
-/* For Small Devices */
-@media (max-width: 360px) {
-    
-    .logo {
-        font-size: 1.025rem;
-        margin: 0px auto 0px -8px;
-    }
-
-    .navbar a {
-        font-size: 1.3rem;
-    }
-    .navbar a:hover {
-        font-size: 1.4rem;
-    }
-    .notification{
-        width: 270px;
-    }
-    .home{
-        min-height: 214px;
-    }
-    .home-text h1{
-        font-size: 1.4rem;
-    }
-    .heading .bx {
-        padding: 8px;
-    }
-
-    .heading h2{
-        font-size: 1.1rem;
-    }
-
-    .box {
-        height: 420px;
-    }
-    .copyright{
-        flex-direction: column;
-        align-items: center;
-        row-gap: 1rem;
-    }
-    .copyright .logo{
-        margin: 0;
-    }
-.about h2,
-.screenshots h2 .download h2 {
-font-size: 1.2rem;
-
-}
+<body>
+     <!-- Custom Scroll Bar -->
+     <div class="progress">
+        <div class="progress-bar" id="scroll-bar"></div>
 
 
-.download-links{
-    grid-template-columns: 1fr;
-}
+    </div>
+    <!-- Header -->
+    <header>
+        <!-- Nav -->
+        <div class="nav contanier">
+            <!-- logo -->
+            <a href="index.html" class="logo">Game <span>Store</span></a>
+            <!-- Nav icons -->
+            <div class="nav-icons">
+                <i class='bx bx-bell bx-tada' id="bell-icon"><span></span></i> <!--bell button-->
+                <i class='bx bxs-download'></i> <!--download button-->
+                <i class='bx bxs-color  bx-spin' onclick="changeColor()" id="color"  ></i>
+                <div class="menu-icon">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+            <!-- Menu -->
+            <div class="menu">
+                <img src="img/menu.png" alt="">
+                <div class="navbar">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#trending">Trending</a></li>
+                    <li><a href="#new">New Games</a></li>
+                    <li><a href="#action">Action Games</a></li>
+                    <li><a href="#">Contact ME</a></li>
+                </div>
+            </div>
+            <!-- Notification -->
+            <div class="notification">
+                <div class="notification-box">
+                    <i class='bx bxs-check-circle'></i>
+                    <p>Congratulation, Your game download successfully.</p>
+                </div>
+                <div class="notification-box box-color">
+                    <i class='bx bxs-x-circle'></i>
+                    <p>Could not apply changes.</p>
+                </div>
+            </div>
 
-    section.header-name h2.p {
-        letter-spacing: 1px;
-        font-size:20px ;
-    } 
-    section.header-name h2.p:hover{
-        font-size: 25px;
-    } 
-    
-    .screenshots-content {
-        display: grid;
-        gap: 17px;
-        justify-content: center;
-        max-width: 800px;
-        width: 100%;
-    }
+    </header>
 
-    .screenshots-content img{
-        width: 100%;
-    }
+    <!-- Home Section Start -->
+    <section class="home contanier" id="home">
+        <img src="img/home.png" alt="">
+        <div class="home-text">
+            <h1>CITY OF THE <br>FUTURE</h1>
+            <a href="#" class="btn" >Available Now </a>
 
-}
+        </div>
+    </section>
+    <!-- Home Section End -->
+
+    <!--Trending Section  Start -->
+    <section class="trending contanier" id="trending">
+        <div class="heading">
+            <i class='bx bxs-flame'></i>
+            <h2>Trending Games</h2>
+        </div>
+        <!-- Content -->
+        <div class="trending-content swiper "> <!--Swiper-->
+            <div class="swiper-wrapper">
+                <!-- Slide #1  -->
+                <div class="swiper-slide"> <!--frist slider-->
+                    <div class="box">
+                        <img src="img/trending1.webp" alt="">
+                        <div class="box-text">
+                            <h2>Cyberpunk 2077</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>>
+                                    <span>30$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i
+                                        class='bx bx-credit-card bx-flip-horizontal bx-tada'></i>></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide #2  -->
+                <div class="swiper-slide"> <!--Second slider-->
+                    <div class="box">
+                        <img src="img/trending2.jpg" alt="">
+                        <div class="box-text">
+                            <h2>Battlefield 2042</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>
+                                    <span>25$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i
+                                        class='bx bx-credit-card bx-flip-horizontal bx-tada'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide #3  -->
+                <div class="swiper-slide"> <!-- Third slider-->
+                    <div class="box">
+                        <img src="img/trending3.jpg" alt="">
+                        <div class="box-text">
+                            <h2>Assassin's creed</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>>
+                                    <span>60$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide #4  -->
+                <div class="swiper-slide"> <!-- 4Th slider-->
+                    <div class="box">
+                        <img src="img/trending4.jpg" alt="">
+                        <div class="box-text">
+                            <h2>Ghost of Tsushima</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>
+                                    <span>30$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide #5  -->
+                <div class="swiper-slide"> <!-- 5Th slider-->
+                    <div class="box">
+                        <img src="img/trending5.png" alt="">
+                        <div class="box-text">
+                            <h2>GTA V</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>
+                                    <span>15$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide #6  -->
+                <div class="swiper-slide"> <!-- 6Th Slider-->
+                    <div class="box">
+                        <img src="img/trending6.jpg" alt="">
+                        <div class="box-text">
+                            <h2>Dying Light 2</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>
+                                    <span>20$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide #7  -->
+                <div class="swiper-slide"> <!-- 7Th Slider-->
+                    <div class="box">
+                        <img src="img/trending7.png" alt="">
+                        <div class="box-text">
+                            <h2>Halo Infinite</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>
+                                    <span>25$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide #8  -->
+                <div class="swiper-slide"> <!-- 8Th Slider-->
+                    <div class="box">
+                        <img src="img/trending8.png" alt="">
+                        <div class="box-text">
+                            <h2> Resident Evil Village</h2>
+                            <h3>Action</h3>
+                            <div class="rating-download">
+                                <div class="rating">
+                                    <i class='bx bxs-hot bx-flashing'></i>
+                                    <span>40$</span>
+                                </div>
+                                <a href="#" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Trending Section End -->
+    <!-- New Section Start -->
+    <section class="new contanier" id="new">
+        <div class="heading">
+            <i class='bx bx-game'></i>
+            <h2> New Games</h2>
+        </div>
+        <!-- Content -->
+        <div class="new-content">
+            <!-- Box 1 -->
+            <div class="box">
+                <img src="img/new1.jpg" alt="">
+                <div class="box-text">
+                    <h2>Subway Surfers</h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 2 -->
+            <div class="box">
+                <img src="img/new2.jpg" alt="">
+                <div class="box-text">
+                    <h2>Call of Duty: Mobile </h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 3 -->
+            <div class="box">
+                <img src="img/red5.png" alt="">
+                <div class="box-text">
+                    <h2>RED DEAD REDEMTION</h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 4 -->
+            <div class="box">
+                <img src="img/new4.jpg" alt="">
+                <div class="box-text">
+                    <h2>Clash Royale</h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 5 -->
+            <div class="box">
+                <img src="img/new5.png" alt="">
+                <div class="box-text">
+                    <h2>Minecraft</h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 6 -->
+            <div class="box">
+                <img src="img/new6.png" alt="">
+                <div class="box-text">
+                    <h2> PUBG</h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 7 -->
+            <div class="box">
+                <img src="img/new7.png" alt="">
+                <div class="box-text">
+                    <h2>Fortnite</h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 8 -->
+            <div class="box">
+                <img src="img/new8.jpg" alt="">
+                <div class="box-text">
+                    <h2>Marvel of Champions</h2>
+                    <h3>Action</h3>
+                    <div class="rating-download">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span>4.8</span>
+                        </div>
+                        <a href="new.html" class="box-btn"><i class='bx bxs-down-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-page">
+            <a href="About me.html">Next Page</a>
+        </div>
+    </section>
+    <!-- New Section End -->
+    <!-- Copyright -->
+    <div class="copyright contanier">
+        <a href="#" class="logo">Game<span>Store</span></a>
+        <p>&#169; Youssef Nady All Right Reserved</p>
+    </div>
+
+    <!-- Link Swiper File  -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Link To Js -->
+    <script src="js/main.js"></script>
+
+
+
+
+
+
+
+</body>
+
+</html>
